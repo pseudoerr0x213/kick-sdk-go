@@ -1,4 +1,4 @@
-package kicksdk
+package kick
 
 type GetPublicKeyResponse struct {
 	Data    PublicKey `json:"data"`

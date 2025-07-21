@@ -1,4 +1,4 @@
-package kicksdk
+package kick
 
 type UserReponse struct {
 	Active    bool   `json:"active"`

@@ -1,6 +1,10 @@
-package kicksdk
+package kick
 
-type ChannelResponse struct {
+import (
+	"context"
+)
+
+type GetChannelsResponse struct {
 	BannerPicture      string   `json:"banner_picture"`
 	BroadcasterUserID  int64    `json:"broadcaster_user_id"`
 	Category           Category `json:"category"`
@@ -13,4 +17,13 @@ type ChannelResponse struct {
 type UpdateChannelRequest struct {
 	CategoryID  int64  `json:"category_id"`
 	StreamTitle string `json:"stream_title"`
+}
+
+func (c *Client) GetChannels(ctx context.Context) (*GetChannelsResponse, error) {
+	var resp GetChannelsResponse
+	path := "/public/v1/channels"
+	if err := c.doRequest(ctx, "GET", path, nil, &resp); err != nil {
+		return nil, err
+	}
+	return &resp, nil
 }

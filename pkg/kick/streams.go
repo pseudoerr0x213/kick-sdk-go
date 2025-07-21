@@ -1,4 +1,4 @@
-package kicksdk
+package kick
 
 type GetLiveStreamsResponse struct {
 	Data    []LiveStream `json:"data"`

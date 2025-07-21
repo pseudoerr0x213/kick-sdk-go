@@ -1,4 +1,4 @@
-package kicksdk
+package kick
 
 type SendChatRequest struct {
 	BroadcasterUserID int64  `json:"broadcaster_user_id"`
