@@ -70,10 +70,16 @@ func NewSendChatRequest(
 	if msgType != ChatMessageUser && msgType != ChatMessageBot {
 		return nil, ErrInvalidMessageType
 	}
-	return &SendChatRequest{
+	req := &SendChatRequest{
 		Content: content,
 		Type:    msgType,
-	}, nil
+	}
+
+	for _, opt := range opts {
+		opt(req)
+	}
+
+	return req, nil
 }
 
 // use this if you want to send a reply to

@@ -25,7 +25,7 @@ func (c *Client) GetChannels(ctx context.Context) (*GetChannelsResponse, error) 
 	if err := c.doRequest(ctx, "GET", path, nil, &resp); err != nil {
 		return nil, err
 	}
-	return &resp.Data, nil
+	return &resp, nil
 }
 
 func (c *Client) UpdateChannels(ctx context.Context, req UpdateChannelRequest) error {
