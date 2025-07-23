@@ -30,10 +30,9 @@ type AuthConfig struct {
 	expiresAt    time.Time
 }
 
-// AuthOption customizes AuthConfig during construction.
 type AuthOption func(*AuthConfig)
 
-// WithUserFlow enables PKCE user-auth flow.
+// WithUserFlow enables PKCE user-auth flow
 func WithUserFlow(
 	redirectURI, codeVerifier, state string,
 	scopes []string,

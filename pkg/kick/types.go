@@ -9,10 +9,11 @@ type Category struct {
 }
 
 type User struct {
-	Data    UserReponse `json:"data"`
-	Message string      `json:"message"`
+	Email          string `json:"email"`
+	Name           string `json:"name"`
+	ProfilePicture string `json:"profile_picture"`
+	UserID         int64  `json:"user_id"`
 }
-
 type Stream struct {
 	IsLive      bool   `json:"is_live"`
 	IsMature    bool   `json:"is_mature"`

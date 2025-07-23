@@ -25,5 +25,13 @@ func (c *Client) GetChannels(ctx context.Context) (*GetChannelsResponse, error) 
 	if err := c.doRequest(ctx, "GET", path, nil, &resp); err != nil {
 		return nil, err
 	}
-	return &resp, nil
+	return &resp.Data, nil
+}
+
+func (c *Client) UpdateChannels(ctx context.Context, req UpdateChannelRequest) error {
+	path := "/public/v1/channels"
+	if err := c.doRequest(ctx, "PATCH", path, &req, nil); err != nil {
+		return err
+	}
+	return nil
 }

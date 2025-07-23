@@ -10,23 +10,23 @@ import (
 
 type Client struct {
 	http *http.Client
-	auth auth.AuthConfig
+	auth auth.AuthProvider
 }
 
 // Option lets you tweak timeouts, base URL, etc.
-type Option func(*Client)
+type ClientOption func(*Client)
 
-func WithHTTPTimeout(d time.Duration) Option {
+func WithHTTPTimeout(d time.Duration) ClientOption {
 	return func(c *Client) {
 		c.http = http.New(c.http.BaseURL, d)
 	}
 }
 
-func NewClient(clientID, clientSecret string, opts ...Option) *Client {
+func NewClient(clientID, clientSecret string, opts ...ClientOption) *Client {
 	httpc := http.New("https://api.kick.com", 10*time.Second)
 	auth := auth.NewAuthConfig(clientID, clientSecret)
 
-	c := &Client{http: httpc, auth: &auth}
+	c := &Client{http: httpc, auth: auth}
 	for _, opt := range opts {
 		opt(c)
 	}
