@@ -37,7 +37,7 @@ More examples will be added in examples folder.
 - Project layout 
 - HTTP layer + auth with options (app / user flows as defined in [Kick API docs]("https://docs.kick.com/getting-started/generating-tokens-oauth2-flow)") 
 - Wire up the SDK logic in entrypoint 
-- Client wrappers for categories, channels, chat, user, moderation `endpoints`
+- Client wrappers for categories, channels, chat, user, moderation, livestreams, public-key, `endpoints`
 
 ## ToDo:  
 - Define retry logic as a func option for Client

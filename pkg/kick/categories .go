@@ -30,7 +30,6 @@ func (c *Client) GetCategoryByID(ctx context.Context, categoryID int) (*Category
 	path := fmt.Sprintf("public/v1/categories/%d", categoryID)
 	if err := c.doRequest(ctx, "GET", path, nil, &resp); err != nil {
 		return nil, err
-
 	}
 	return &resp.Data, nil
 }
